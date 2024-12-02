@@ -188,8 +188,8 @@
 
 </style>
 
-	  <title>The Platonic Representation Hypothesis</title>
-      <meta property="og:title" content="The Platonic Representation Hypothesis" />
+	  <title>Expanding the Toy Model Framework</title>
+      <meta property="og:title" content="Expanding the Toy Model Framework" />
 			<meta charset="UTF-8">
   </head>
 
@@ -230,8 +230,16 @@
           <div style="position:fixed; max-width:inherit; top:max(20%,120px)">
               <b style="font-size:16px">Outline</b><br><br>
               <a href="#intro">Introduction</a><br><br>
-              <a href="#does_x_do_y">Does X do Y?</a><br><br>
+              <a href="#definitions">Terminology and Definitions</a><br><br>
+              <a href="#currentwork">Current Work</a><br><br>
+			  <a href="#Experiment 1">Experiment 1</a><br><br>
+			  <a href="#Experiment 2">Experiment 2</a><br><br>
+			  <a href="#Experiment 3">Experiment 3</a><br><br>
               <a href="#implications_and_limitations">Implications and limitations</a><br><br>
+			  <a href="#citations">Citations</a><br><br>
+
+
+
           </div>
 				</div>
 		    <div class="main-content-block">
@@ -252,10 +260,19 @@
 						central to the power of deep learning, enabling models to generalize, reduce noise, and efficiently handle the curse of dimensionality.
 						</p>
 						<p>
-						However, despite its importance, dimensionality reduction often acts as a "black box" and make neural network less interpretable. Wouldn't it have 
+						However, despite its importance, dimensionality reduction often acts as a "black box" and make neural network less interpretable. 
+						
+						<div class="image-container">
+							<img src="images/blackbox.png" style="width: 50%;">
+						</div>	
+						
+						Wouldn't it have 
 						been nicer if each neuron in the neural network represented only one feature? For example, in the context of CNNs, it would be more 
 						intuitive if one neuron were solely responsible for detecting curvature, while another solely focused on detecting color. Unfortunately the reality 
 						is different. When a network creates a compact embedding, each feature meets one of three fates: </p>
+
+
+
 						<p>
 						(1) The feature is exclusively encoded by a single dedicated monosementic neuron. <br>
 						(2) The feature is jointly encoded by a polysementic neuron alongside another feature (superposition). <br>
@@ -465,7 +482,7 @@
 
 		</div>
 
-		<div class="content-margin-container">
+		<div class="content-margin-container" id="Experiment 1">
 				<div class="margin-left-block">
 				</div>
 			<div class="main-content-block">
@@ -475,7 +492,7 @@
 					
 		</div>
 
-		<div class="content-margin-container">
+		<div class="content-margin-container" id ="Experiment 2">
 				<div class="margin-left-block">
 				</div>
 			<div class="main-content-block">
@@ -596,6 +613,16 @@
 		</div>
 
 	</div>
+
+	<div class="content-margin-container" id="Experiment 3">
+		<div class="margin-left-block">
+		</div>
+	<div class="main-content-block">
+	<h2>Experiment 3: </h2>
+
+	</div>
+			
+</div>
 
 		<div class="content-margin-container" id="implications_and_limitations">
 				<div class="margin-left-block">
