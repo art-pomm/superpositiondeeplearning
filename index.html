@@ -590,7 +590,7 @@
 					<ul class="config-list">
 						<li>Total number of features \(n\): 20</li>
 						<li>Embedding size \(m\): 5</li>
-						<li>Features Importance: [1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5]</li>
+						<li>Features Importance: [1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5]</li>
 						<li>Activation function: ReLU</li>
 						<li>Input vector sparsity \(S\): 0</li>
 					</ul>
@@ -599,12 +599,10 @@
 					Results:
 				</p>
 				<p>
-					The clustered importance experiment reveals surprising behavior in how neural networks allocate their representational capacity. Despite assigning equal importance to the first five features, 
-					the model selectively represents only three of them, while the other two are deprioritized. This indicates that the network does not strictly follow the assigned importance weights but instead 
-					considers other factors, such as redundancy among features or the ease of representing certain features in the reduced embedding space. Even more unexpectedly, some features with lower importance 
-					(e.g., importance = 0.5) were represented more prominently than certain high-importance features (importance = 1.0). This suggests that lower-importance features might have been less complex or 
-					more "compatible" with the embedding constraints, allowing the network to encode them more efficiently. Additionally, some features, regardless of their assigned importance, were completely dropped, 
-					showing the network's ability to optimize capacity by focusing on features that are easier to represent or more useful for minimizing the loss. 
+					The clustered importance experiment reveals surprising behavior in how neural networks allocate their representational capacity. Despite assigning equal importance to the first and third five features, 
+					the model favors the 4<sup>th</sup>, 5sup>th</sup>, 11sup>th</sup>, 12sup>th</sup>, 13sup>th</sup>, and 15sup>th</sup>, while the other four features with high importance are deprioritized. This indicates that the network does not strictly follow the assigned importance weights but instead 
+					considers other factors, such as redundancy among features or the ease of representing certain features in the reduced embedding space. The features with lower importance 
+					(importance = 0.5) were not represented by the model.
 					<div class="image-container">
 						<div class="image-caption">Figure 7: Test Case 3 Results</div>
 						<img src="images/features_cluster_importance.png" alt="Features by Importance">
