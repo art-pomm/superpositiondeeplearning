@@ -261,7 +261,7 @@
 						</p>
 						<p>
 						However, despite its importance, many papers have compared dimensionality reduction to a "black box", making neural network less interpretable. <sup><a href="#ref_1">[1]</a></sup>
-						As students of deep learning, we were inspired by various sources exploring the embedding space and visualizing neural networks to better understand these complex systems. <sup><a href="#ref_2">[2]</a><a href="#ref_3">[3]</a></sup>  However, Principal Component Analysis, T-Distributed Stochastic Neighbor Embedding, and various graph-based representations left us hungry for more intuition. 
+						As students of deep learning, we were inspired by various sources exploring the embedding space and visualizing neural networks to better understand these complex systems. <sup><a href="#ref_2">[2]</a><a href="#ref_3">[3]</a></sup><sup><a href="#ref_4">[4]</a></sup>  However, Principal Component Analysis, T-Distributed Stochastic Neighbor Embedding, and various graph-based representations left us hungry for more intuition. 
 						
 						<div class="image-container">
 							<img src="images/blackbox.png" style="width: 50%;">
@@ -281,14 +281,14 @@
 						</p>
 						<p>
 						It is specifically the phenomenon observed in (2)—polysemantic encoding—that makes neural networks less interpretable. To build intuition around 
-						this, recent work such as <i>The Toy Model by OpenAI</i><sup><a href="#ref_4">[4]</a></sup> has begun to uncover the mechanism of superposition. These studies use ReLU networks to investigate 
+						this, recent work such as <i>Toy Models of Superposition</i><sup><a href="#ref_5">[5]</a></sup> has begun to uncover the mechanism of superposition. These studies use ReLU networks to investigate 
 						how a neural network decides to encode an input feature based on factors like feature importance and sparsity.
 						</p>
 						<p>
 						<b>The gap this project aims to fill</b><br>
 						While these studies provide an important first step toward building intuition about encoding mechanisms, they leave critical practical questions unanswered. For instance, how do choices in network 
 						architecture, such as activation functions or the number of hidden dimensions, impact the emergence and stability of superposition? What conditions 
-						are required for superposition to succeed without introducing noise or degrading model performance? <br><br>
+						are required for superposition to succeed without introducing noise or degrading model performance? TODO: fix this once experiments are done. <br><br>
 						Our project aims to address these questions by systematically exploring the dynamics of superposition within simplified toy models. Using these 
 						interpretable frameworks, we will experiment with altering key factors, such as activation functions, optimizers, and network configurations, to 
 						observe their effects on feature representation. These experiments are scientifically significant because they probe fundamental aspects of 
@@ -319,7 +319,7 @@
 							In this study, we define features as input qualities that help differentiate one input from another. 
 							Features can sometimes be directly observable, such as curvature or color in an image. 
 							At other times, they may be conceptual and interpretable by humans, as demonstrated by the famous work 
-							of Mikolov et al. [11], which showed that word embeddings can have directions corresponding to semantic 
+							of Mikolov et al. <a href="#ref_6">[6]</a>, which showed that word embeddings can have directions corresponding to semantic 
 							properties. This allows for operations like embedding arithmetic, exemplified by:
 						</p>
 						<blockquote>
@@ -356,7 +356,7 @@
 					<p><b>Superposition</b><br>
 					Imagine you're at a packed movie theater, but instead of seats, you have a limited number of beanbags. Each beanbag 
 					can be shared by multiple people, as long as they squeeze in carefully and don’t completely overlap. Somehow, everyone 
-					manages to sit comfortably, even though the number of beanbags seems too small for the crowd. This is superposition in action. </p>
+					manages to sit comfortably, even though the number of beanbags seems too small for the crowd. This is superposition in action. For a quick visual primer we highly recommend viewing <a href="#ref_7">[7]</a>.</p>
 					<p>
 					In neural network, superposition is a clever strategy allowing neural networks "to represent more features than they have neurons"[add link]. 
 					They exploit a property of high-dimensional spaces to simulate a model with many more neurons. 
@@ -645,10 +645,19 @@
 							<a id="ref_1"></a>[1] <a href="https://arxiv.org/abs/1708.08296">Explainable Artificial Intelligence: Understanding, Visualizing and Interpreting Deep Learning Models</a>, Samek, W., Wiegand, T., & Müller, K-R., 2017<br><br>
 							<a id="ref_2"></a>[2] C. Olah, <a href= "https://colah.github.io/posts/2014-10-Visualizing-MNIST/">"Visualizing MNIST: An Exploration of Dimensionality Reduction,"</a> colah's blog, Oct. 9, 2014. [Online].  [Accessed: Nov. 15, 2024]<br><br>
 							<a id="ref_3"></a>[3] C. Olah, <a href= "https://colah.github.io/posts/2015-01-Visualizing-Representations/">"Visualizing Representations: Deep Learning and Human Beings,"</a> colah's blog, Jan. 16, 2015. [Online]. [Accessed: Nov. 15, 2024]<br><br>
-							<a id="ref_4"></a>[4] N. Elhage, T. Hume, C. Olsson, N. Schiefer, T. Henighan, S. Kravec,
+
+							<a id="ref_4"></a>[4] 3Blue1Brown, <a href="https://www.youtube.com/watch?v=wjZofJX0v4M&t=748s">"Transformers (how LLMs work) explained visually,"</a> YouTube, Apr. 1, 2024. [Online].  [Accessed: Nov. 15, 2024]<br><br>
+
+							<a id="ref_5"></a>[5] N. Elhage, T. Hume, C. Olsson, N. Schiefer, T. Henighan, S. Kravec,
 							 Z. Hatfield-Dodds, R. Lasenby, D. Drain, C. Chen, R. Grosse, S. McCandlish, J. Kaplan, 
 							 D. Amodei, M. Wattenberg, and C. Olah, <a href="https://transformer-circuits.pub/2022/toy_model/index.html#phase-change">"Toy Models of Superposition"</a>, Transformer Circuits, Sept. 14, 2022.
 							  [Online]. [Accessed: Dec. 02, 2024].<br><br>
+
+							  <a id="ref_6"></a>[6] T. Mikolov, W. Yih, and G. Zweig, <a href="https://aclanthology.org/N13-1090.pdf">"Linguistic regularities in continuous space word representations,"</a> Proceedings of the 2013 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, 2013, pp. 746–751. [PDF]<br><br>
+
+							  <a id="ref_7"></a>[7] 3Blue1Brown, <a href="https://www.youtube.com/watch?v=9-Jl0dxWQs8&t=1024s">"How might LLMs store facts,"</a> YouTube, Aug. 31, 2024. [Online]. [Accessed: Nov 15, 2024]<br><br>
+
+
 						</div>
 		    </div>
 		    <div class="margin-right-block">
