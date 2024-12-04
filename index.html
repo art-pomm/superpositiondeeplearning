@@ -616,11 +616,68 @@
 	<div class="content-margin-container" id="Experiment 3">
 		<div class="margin-left-block">
 		</div>
-	<div class="main-content-block">
-	<h2>Experiment 3: </h2>
+		<div class="main-content-block">
+			<h2>Experiment 3: Effect of Initialization Methods</h2>
+			<p>
+				In this experiment, we explore how different weight initialization methods influence Toy model's ability to represent features. Initialization plays a critical role in the training dynamics of neural networks, determining the starting point for optimization and affecting how quickly and effectively the model converges. Here, we compare several initialization methods:
+				<ul>
+					<li><strong>Xavier Normal</strong>: Ensures the variance of the weights is proportional to the input and output dimensions.</li>
+					<li><strong>Xavier Uniform</strong>: Similar to Xavier Normal but initializes weights uniformly.</li>
+					<li><strong>He Normal</strong>: Optimized for ReLU activation, with higher variance for weights connected to deeper layers.</li>
+					<li><strong>Uniform (-0.1, 0.1)</strong>: Assigns weights randomly between -0.1 and 0.1.</li>
+					<li><strong>Normal (mean=0, std=0.05)</strong>: Initializes weights with a Gaussian distribution of mean 0 and standard deviation 0.05.</li>
+				</ul>
+			</p>
+			<p>
+				Model Configuration:
+				<ul class="config-list">
+					<li>Total number of features \(n\): 20</li>
+					<li>Embedding size \(m\): 5</li>
+					<li>Features Importance: 0.7<sup>i</sup></li>
+					<li>Activation function: ReLU</li>
+					<li>Input vector sparsity \(S\): [0.0, 0.7, 0.9, 0.97, 0.99, 0.997, 0.999]</li>
+				</ul>
+			</p>
+			We aim to understand which features the model represents in its hidden layers and whether those features are independent of each other. To do this, we look at the size of each feature's vector,  \(∣∣W_i∣∣\), where a value close to 1 means the feature is fully represented, and a value of 0 means it is not. The blue/yellow color scale represents superposition, calculated as the squared dot product of feature vectors. Brighter colors (yellow) indicate greater overlap between features, while darker colors (black) show features that are more independent. As you move down each interactive plots more and more sparse inputs. 
 
-	</div>
+			<p>
+				The blue and red portions in the heatmap visualization represent the values of the weights, where the color indicates both the magnitude and the direction of influence. Blue represents negative values, meaning these weights suppress or reduce the corresponding features, while red represents positive values, indicating that these weights amplify or emphasize the features. The intensity of the color reflects the magnitude of the weight, with darker shades corresponding to larger values. Grey areas indicate a neutral influence, where the weight value is close to zero. This color-coded representation helps illustrate how the model assigns importance to different features and adjusts their contributions to the hidden representation.			</p>
+
+			<!-- Xavier Normal Results -->
+			<h3>Xavier Normal</h3>
+			<p>
+			</p>
+			<iframe src="Xavier Normal.html" width="650" height="750" style="border:none;"></iframe>
+	
+			<!-- Xavier Uniform Results -->
+			<h3>Xavier Uniform</h3>
+			<p>
+			</p>
+			<iframe src="Xavier Uniform.html" width="650" height="750" style="border:none;"></iframe>
+	
+			<!-- He Normal Results -->
+			<h3>He Normal</h3>
+			<p>
+			</p>
+			<iframe src="He Normal.html" width="650" height="750" style="border:none;"></iframe>
+	
+			<!-- Uniform (-0.1, 0.1) Results -->
+			<h3>Uniform (-0.1, 0.1)</h3>
+			<p>
+			</p>
+			<iframe src="Uniform (-0.1, 0.1).html" width="650" height="750" style="border:none;"></iframe>
+	
+			<!-- Normal (mean=0, std=0.05) Results -->
+			<h3>Normal (mean=0, std=0.05)</h3>
+			<p>
+			</p>
+			<iframe src="Normal (m=0, std=0.05).html" width="650" height="750" style="border:none;"></iframe>
+
+			<p>
+				In dense regimes (\(1-S = 1.0\)), all initializations produce orthogonal feature representations, as evidenced by diagonal elements in the \(W^T W\) heatmaps and dark blue feature representations in \(∣∣W_i∣∣\). However, in sparser regimes (\(1-S \leq 0.03\)), there are differences between initializations. Notably, Uniform (-0.1, 0.1) exhibit higher variability in feature norms but align closely with other methods as sparsity increases. Our results suggests that sparsity constraints overshadow initialization differences in determining representational capacity.
+			</p>
 			
+		</div>
 </div>
 
 		<div class="content-margin-container" id="implications_and_limitations">
