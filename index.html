@@ -267,13 +267,10 @@
 							<img src="images/blackbox.png" style="width: 50%;">
 						</div>	
 						
-						Wouldn't it have 
-						been nicer if each neuron in the neural network represented only one feature? For example, in the context of CNNs, it would be more 
+						Wouldn't it have been nicer if each neuron in the neural network represented only one feature? For example, in the context of CNNs, it would be more 
 						intuitive if one neuron were solely responsible for detecting curvature, while another solely focused on detecting color. Unfortunately the reality 
 						is different. When a network creates a compact embedding, each feature meets one of three fates: </p>
-
-
-
+			    
 						<p>
 						(1) The feature is exclusively encoded by a single dedicated monosementic neuron. <br>
 						(2) The feature is jointly encoded by a polysementic neuron alongside another feature (superposition). <br>
@@ -287,8 +284,7 @@
 						<p>
 						<b>The gap this project aims to fill</b><br>
 						While these studies provide an important first step toward building intuition about encoding mechanisms, they leave critical practical questions unanswered. For instance, how do choices in network 
-						architecture, such as activation functions or the number of hidden dimensions, impact the emergence and stability of superposition? What conditions 
-						are required for superposition to succeed without introducing noise or degrading model performance? TODO: fix this once experiments are done. <br><br>
+						architecture, such as activation functions or the number of hidden dimensions, impact the emergence and stability of superposition? How does the model decide which important features to prioritize over less important ones in the limited embedding space? How do different weight initialization methods influence Toy model's ability to represent features? <br><br>
 						Our project aims to address these questions by systematically exploring the dynamics of superposition within simplified toy models. Using these 
 						interpretable frameworks, we will experiment with altering key factors, such as activation functions, optimizers, and network configurations, to 
 						observe their effects on feature representation. These experiments are scientifically significant because they probe fundamental aspects of 
@@ -298,6 +294,11 @@
 						</p>
 						<p>
 						<b>List of experiments</b><br>
+						<ul>
+							<li><b>Experiment 1:</b> Altering the activation function </li>
+							<li><b>Experiment 2:</b> Altering features importance </li>
+							<li><b>Experiment 3:</b> Effect of initialization methods </li>
+						</ul>	
 						</p>
 						<p>
 						<b>Importance of this work</b><br>
