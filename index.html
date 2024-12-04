@@ -411,21 +411,17 @@
 					The model is incentivized to focus its representational capacity on preserving more important features, ensuring that key patterns in the data are retained while 
 					less critical ones can be approximated or ignored.
 					</p>
-
-					<p><b>Add additional terms as needed</b><br>
-					</p>
-					
+					</p>	
 		    </div>
-		   
 		</div>
 
 		<div class="content-margin-container" id="currentwork">
 			<div class="margin-left-block">
 			</div>
 		    <div class="main-content-block">
-					<h2>The Model to Demonstrate Superposition</h2>
+					<h2>Background and Model to Demonstrate Superposition</h2>
 					<p>
-						The experiment setup in this section creates a simplified environment to analyze how neural networks encode and reconstruct information when their capacity is limited.
+						The experiment setup in this section creates a simplified environment similar to the one used in <i>Toy Models for Superposition</i><sup><a href="#ref_5">[5]</a></sup> to analyze how neural networks encode and reconstruct information when their capacity is limited.
 					</p>
 					<ul>
 						<li>
@@ -451,7 +447,7 @@
 						<div class="image-caption"><strong>Figure 4: Network Architecture</strong></div>
 						<img src="images/network_architecture.png" alt="Network Architecture">
 					</div>
-					<p>The toy model developed by [XX] employs the ReLU activation function to investigate how neural networks decide to encode each feature. This simplified approach helps uncover the fundamental mechanisms of feature representation. As we progress through this blog, we'll delve into various 
+					<p>The toy model developed by OpenAI<sup><a href="#ref_5">[5]</a></sup> employs the ReLU activation function to investigate how neural networks decide to encode each feature. This simplified approach helps uncover the fundamental mechanisms of feature representation. As we progress through this blog, we'll delve into various 
 						activation functions and examine how they influence the encoding strategies of neural networks, highlighting their impact on our findings.</p>
 					<div>
 						<div class="title">Loss Function: </div>
@@ -507,13 +503,12 @@
 				<p>
 					In this section, we aim to isolate the effect of feature importance on a neural network's decision to encode features. 
 					To achieve this, we set the feature sparsity to \( S = 0 \) without modifying it, meaning the input vector is very dense. With this setup, the neural network determines which features to encode or 
-					ignore based solely on their importance values. The activation function used in this experiment is ReLU. This approach allows us to examine how the model 
-					allocates its representational capacity when feature sparsity is not a factor, providing a clearer understanding of the role of importance in feature selection.
+					ignore based solely on their importance values. The activation function used in this experiment is ReLU. 
 				</p>
 				<h1>Test Case 1: Features are ordered from more important to less important</h1>
 				<p>
 				In this test case, the input features are ordered by importance, starting with the most important and decreasing to the least important. 
-				The importance values follow an exponential decay, with the most critical features receiving significantly higher weights than the less important ones.
+				The importance values follow an exponential decay, with the most critical features receiving significantly higher weights than the less important ones. The input vector size is 20 and the embedding size is 5.
 				</p>
 				<p>
 					Model Configuration:
@@ -530,16 +525,16 @@
 				</p>
 				<p>
 					In Figure 5, the left plot represents the L2 norms of the weight vectors corresponding to each feature. Each bar indicates the magnitude of a feature's contribution to the embedding space, 
-					with taller bars reflecting stronger representation. In this case, the plot shows that the network focuses exclusively on a subset of features, as only the first five features have non-zero norms. 
-					These features are represented uniformly, with no significant variations in their norms, suggesting equal prioritization. The absence of bars for the remaining features indicates that these features 
-					have been completely disregarded by the network due to capacity constraints in the embedding space.
+					with taller darker blue bars reflecting stronger representation. In this case, the plot shows that the network represents exclusively the first five features, which are the five features with the highest importance as they are ordered by descending importance. 
+					These features are fully represented. The absence of bars for the remaining features indicates that these features 
+					have been completely disregarded by the network due to capacity constraints in the embedding space. The model hasn't superposed any features together in the embedding space.
 				</p>
 				<p>
 					The right plot is a heatmap showing the pairwise interference between features, computed as the dot 
-					product of their weight vectors \(W^T W\). Each cell in the heatmap corresponds to the interaction between two features, with 
+					product of their weight vectors \(W^T W\). Each cell in the heatmap, outside the diagonal (i, i), corresponds to the interaction between two features, with 
 					brighter colors (red) indicating stronger interference. In this case, the heatmap reveals that the network's 
-					embedding is highly orthogonal, as all off-diagonal elements are neutral (gray), indicating minimal overlap between 
-					features. The strong diagonal elements confirm that each feature is primarily self-represented, with little to no 
+					embedding is highly orthogonal, as all off-diagonal elements are neutral (gray), indicating no overlap between 
+					features. The strong diagonal elements confirm that the first five features are self-represented, with little to no 
 					interference between different features.
 				</p>
 				<p>
