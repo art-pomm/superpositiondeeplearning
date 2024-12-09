@@ -1,6 +1,6 @@
 <html>
 <head>
-/*abhi test change*/
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -485,7 +485,19 @@
 				</div>
 			<div class="main-content-block">
 			<h2>Experiment 1: Altering Activation Functions</h2>
-
+				<p>
+					This experiment investigates how different activation functions influence the emergence of superposition and the allocation of representational capacity in neural networks. Activation functions determine how input signals are transformed as they propagate through a network, playing a key role in encoding and decoding features. By altering the activation function, we aim to understand how the network's ability to separate, combine, or ignore features changes under varying conditions. Mid-way through the project, we came across existing research [7] directly related to this topic which further validated our hypothesis and initial research motivation. Moving forward, however, we decided to focus majority of our efforts on experiment 2 and 3 while limiting experiment 1 to just the three most popular activation functions i.e. ReLU, Sigmoid, Tanh. 
+				</p>
+				<p>
+					Model Configuration:
+					<ul class="config-list">
+						<li>Total number of features \(n\): 20</li>
+						<li>Embedding size \(m\): 5</li>
+						<li>Features Importance: Uniform across features</li>
+						<li>Activation function: ReLU, Sigmoid, Tanh</li>
+						<li>Input vector sparsity \(S\): 0</li>
+					</ul>
+				</p>
 			</div>
 					
 		</div>
@@ -682,6 +694,24 @@
 		    <div class="main-content-block">
 						<h1>Implications and limitations</h1>
 						Let's end with some discussion of the implications and limitations.
+
+			    			Implication:
+						Designing Neural Networks for Interpretability: The choice of activation function directly impacts how neural networks allocate representational capacity and manage superposition. Sparse activation functions like ReLU offer advantages for interpretability, as they encourage clear, separable embeddings. This is critical for applications where understanding feature representation is necessary, such as in explainable AI or high-stakes decision-making systems. 
+
+						Feature Prioritization and Compression: Networks employing Sigmoid or Tanh may generalize better in some cases due to denser embeddings, but their increased feature interference could pose challenges in scenarios requiring distinct feature representations. 
+
+						Trade-offs in Sparse vs. Dense Representations: Sparse activations (e.g., ReLU) are well-suited for high-dimensional input data where only a subset of features is relevant, aligning with real-world sparsity in data distributions. Dense activations (e.g., Sigmoid, Tanh) might be preferable when the goal is to represent subtle or distributed feature relationships, such as in text embeddings or continuous data transformations. 
+
+						Guidance for Model Architecture Design: These findings emphasize the need to carefully select activation functions based on the task and data properties. For example, using sparse activations for structured or interpretable tasks like object detection or feature attribution would fetch better results. On the converse, dense activations for tasks involving holistic patterns, such as sentiment analysis or image synthesis are preferrable. 
+			    
+			    			Limitations: 
+						The experiments were conducted using toy models with controlled conditions (e.g., fixed embedding size, uniform feature importance). While this setup isolates the effects of tweaking activation functions, feature importance etc, it may not fully capture complexities in real-world datasets and architectures. Insights derived from toy models might not generalize directly to deeper or more complex architectures, such as convolutional networks, transformers, or recurrent networks. Real-world networks involve hierarchical feature representations, which could interact with activation functions in unforeseen ways. 
+						
+						By constraining the embedding size to 5, we do not explore how larger or more flexible embeddings might influence feature representations or alter the observed trends. 
+
+						The study does not examine how activation functions influence learning dynamics over time, such as the speed of convergence or sensitivity to initialization. These aspects could significantly affect practical applications. 
+
+						The results are partially influenced by the specific weight initialization and optimization methods used. Alternative initializations or optimizers might lead to different patterns of representation. 
 		    </div>
 		    <div class="margin-right-block">
 		    </div>
