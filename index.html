@@ -692,26 +692,33 @@
 				<div class="margin-left-block">
 				</div>
 		    <div class="main-content-block">
-						<h1>Implications and limitations</h1>
-						Let's end with some discussion of the implications and limitations.
-
-			    			Implication:
-						Designing Neural Networks for Interpretability: The choice of activation function directly impacts how neural networks allocate representational capacity and manage superposition. Sparse activation functions like ReLU offer advantages for interpretability, as they encourage clear, separable embeddings. This is critical for applications where understanding feature representation is necessary, such as in explainable AI or high-stakes decision-making systems. 
-
-						Feature Prioritization and Compression: Networks employing Sigmoid or Tanh may generalize better in some cases due to denser embeddings, but their increased feature interference could pose challenges in scenarios requiring distinct feature representations. 
-
-						Trade-offs in Sparse vs. Dense Representations: Sparse activations (e.g., ReLU) are well-suited for high-dimensional input data where only a subset of features is relevant, aligning with real-world sparsity in data distributions. Dense activations (e.g., Sigmoid, Tanh) might be preferable when the goal is to represent subtle or distributed feature relationships, such as in text embeddings or continuous data transformations. 
-
-						Guidance for Model Architecture Design: These findings emphasize the need to carefully select activation functions based on the task and data properties. For example, using sparse activations for structured or interpretable tasks like object detection or feature attribution would fetch better results. On the converse, dense activations for tasks involving holistic patterns, such as sentiment analysis or image synthesis are preferrable. 
-			    
-			    			Limitations: 
-						The experiments were conducted using toy models with controlled conditions (e.g., fixed embedding size, uniform feature importance). While this setup isolates the effects of tweaking activation functions, feature importance etc, it may not fully capture complexities in real-world datasets and architectures. Insights derived from toy models might not generalize directly to deeper or more complex architectures, such as convolutional networks, transformers, or recurrent networks. Real-world networks involve hierarchical feature representations, which could interact with activation functions in unforeseen ways. 
-						
-						By constraining the embedding size to 5, we do not explore how larger or more flexible embeddings might influence feature representations or alter the observed trends. 
-
-						The study does not examine how activation functions influence learning dynamics over time, such as the speed of convergence or sensitivity to initialization. These aspects could significantly affect practical applications. 
-
-						The results are partially influenced by the specific weight initialization and optimization methods used. Alternative initializations or optimizers might lead to different patterns of representation. 
+						<h2>Implications and Limitations</h2>
+				<h1>Implications</h1>
+					<p>
+						The findings from this study offer practical insights that extend beyond the simplified toy model, particularly in the context of real-world applications and 
+						the use of visual diagnostics for neural network interpretability. In real-world architectures such as transformers or autoencoders, where embedding size is 
+						often a bottleneck, understanding how networks prioritize features can guide the design of models that efficiently allocate representational capacity. For 
+						instance, tasks like text summarization or image compression often require compact embeddings while preserving key information, a challenge our results 
+						address through the principles of feature prioritization and sparsity. Additionally, the study underscores the critical role of activation functions in 
+						managing feature interference and representation. Activation functions such as ReLU, sigmoid, 
+						and tanh influence the degree of sparsity and superposition in embeddings, suggesting that careful selection of activation functions can significantly impact 
+						the quality of feature representations. The power of visual diagnostics, such as bar plots for feature norms and heatmaps for interference patterns, 
+						is highlighted as a practical tool to demystify neural network behavior. These visualizations provide an intuitive understanding of how networks handle 
+						overlapping representations, offering a framework for debugging and interpreting more complex models. By leveraging these insights, researchers and practitioners 
+						can design models that are not only more efficient but also more interpretable, paving the way for broader adoption of explainable AI techniques in industry and 
+						research.
+					</p>
+				<h1>Limitations</h1>
+					<p>
+						While our study provides valuable insights into feature prioritization and superposition in constrained embedding spaces, it is not without limitations. First, 
+						the toy model operates in a controlled environment with a fixed embedding size, which simplifies real-world complexities and may not generalize 
+						to hierarchical or multi-layer architectures like transformers or convolutional neural networks. Second, our analysis assumes static feature importance, whereas in 
+						real-world applications, feature importance often evolves dynamically during training, influenced by data interactions and optimization processes. Additionally, while 
+						the study examines final embeddings, it does not account for temporal dynamics during training, such as how representations change over epochs. Finally, biases introduced 
+						by specific initialization strategies and activation functions, though partially explored, leave room for further investigation into how these choices influence superposition 
+						behavior across diverse tasks. Addressing these limitations in future work could provide a deeper understanding of how neural networks balance feature prioritization and 
+						representation under real-world constraints.
+					</p>
 		    </div>
 		    <div class="margin-right-block">
 		    </div>
