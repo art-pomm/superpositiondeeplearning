@@ -504,20 +504,30 @@
 				</p>
 				<p>
 					<h1>ReLU:</h1> 
-					
-					[Image]
+				</p>
+				<p>
+					<div class="image-container">
+						<div class="image-caption"><strong>Figure 1: Output with S = 0 (All features active)</strong></div>
+						<img src="images/sparsity0.png" alt="Sparsity with S=0">
+					</div>
 					
 					The ReLU model focuses on the most significant features in the low sparsity regime (generally resulting in monosemanticity), while relying on superposition in the high sparsity regime (polysemanticity). With weaker signals for the most important features in the high sparsity regime, the model encodes multiple features in each neuron activation to minimize error of the sparse signals. Notably, the ReLU model uses antipodal pairs in the mapping of features to encode multiple features to single neurons. This can be seen as a light-colored diagonal entry within WtW and a corresponding dark-colored off-diagonal entry within the same column. This antipodal mapping of features is a method that the model uses to compress more than one feature to one neuron.
-					
+				</p>	
 					<h2>Sigmoid:</h2>
-
-					[Image]
+				<p>
+					<div class="image-container">
+						<div class="image-caption"><strong>Figure 1: Output with S = 0 (All features active)</strong></div>
+						<img src="images/sparsity0.png" alt="Sparsity with S=0">
+					</div>
 
 					The Sigmoid model exhibits superposition in all neurons as soon as the sparsity is non-zero, as can be seen from the “speckling” of non-zero off-diagonal terms in WtW.This is a difference from the ReLU/GeLU/SiLU models, for which the superposition “leaks” into the least significant encoded features at low, non-zero sparsities and eventually affects all features at higher sparsities. This low-sparsity superposition may occur because the Sigmoid function strictly maps to (0,1)(0,1), with increasingly large pre-activation inputs necessary to map to values close to 0 and 1. As such, the model may be “speckling” the off-diagonal values in an attempt to “reach” these inputs which are close to 0 and 1.
-					
+				</p>	
 					<h3>Tanh:</h3>
 
-					[Image]
+					<div class="image-container">
+						<div class="image-caption"><strong>Figure 1: Output with S = 0 (All features active)</strong></div>
+						<img src="images/sparsity0.png" alt="Sparsity with S=0">
+					</div>
 
 					With the Tanh activation function, the models prioritize the most important features regardless of sparsity. This behavior is possibly attributed to the range that the Tanh function maps to (−1,1)(−1,1), while the target range of input values in this experiment are [0,1][0,1]. This behavior is similar to that of a linear model (i.e., no activation function) which exhibits no capability to use superposition, but the phase diagram reveals subtle differences from the linear model results.
 				</p>
